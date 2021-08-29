@@ -1,0 +1,114 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.11);
+}
+
+.keterangan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #75A5C8, #b9d9ee);
+    background-size: cover;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    color: white;
+    padding: 40px;
+}
+
+.form {
+    padding: 40px;
+    background-color: white;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.btn {
+    width: 100% !important;
+    border-radius: 10px;
+    background-color: #75A5C8;
+    color: white;
+}
+
+.nav-link {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.11);
+    color: gray;
+}
+
+.nav-link:hover {
+    color: #75A5C8;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #75A5C8 !important;
+    color: #75A5C8 !important;
+}
+
+.content {
+    padding-top: 0px;
+}
+
+#partitioned {
+    padding-left: 15px;
+    letter-spacing: 42px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 50px 1px;
+    background-repeat: repeat-x;
+    background-position-x: 35px;
+    width: 220px;
+    min-width: 220px;
+    outline: none;
+}
+
+#divInner {
+    left: 0;
+    position: sticky;
+}
+
+#divOuter {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 190px;
+    overflow: hidden;
+}
+
+
+
+@media (min-width: 992px) {
+    .keterangan {
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .form {
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .content {
+        padding-top: 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        padding-top: 80px;
+    }
+}
