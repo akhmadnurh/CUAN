@@ -1,0 +1,26 @@
+.navbar{
+    background-color: #4F8CB8;
+}
+
+.side{
+    background-color: #3F4466;
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-user{
+    color: white;
+    text-decoration: none;
+}
+
+.card{
+    background-color: #D6E6F4;
+}
+
+.card-footer{
+    color: white !important;
+    text-align: center;
+    background-color: #9ABBDE;
+}
