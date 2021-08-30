@@ -2,6 +2,16 @@
     background-color: #4F8CB8;
 }
 
+.nav-item{
+    /* border-bottom: 1px solid white; */
+    width: 100%;
+}
+
+.nav-item:hover .nav-link{
+    color: #9ABBDE;
+    /* border-bottom: 1px solid gainsboro; */
+}
+
 .side{
     background-color: #3F4466;
 }
@@ -23,4 +33,19 @@
     color: white !important;
     text-align: center;
     background-color: #9ABBDE;
+}
+
+.tambah{
+    background-color: #9ABBDE;
+}
+
+.card-footer:hover{
+    background-color: #4F8CB8;
+    transition: 0.8s;
+}
+
+.tambah:hover{
+    background-color: #4F8CB8;
+    transition: 0.8s;
+    color: white;
 }
