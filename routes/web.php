@@ -18,3 +18,5 @@ Route::get('/', [C_User::class, 'dashboard']);
 Route::get('/login', [C_User::class, 'login']);
 Route::post('/login', [C_User::class, 'loginProcess']);
 Route::get('/logout', [C_User::class, 'logout']);
+Route::post('/register', [C_User::class, 'register']);
+Route::get('/verify-account', [C_User::class, 'verifyAccount']);

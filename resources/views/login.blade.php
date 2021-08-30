@@ -26,11 +26,13 @@
                 @endif
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" max="30" required onfocus="removeAlert()">
+                    <input type="email" class="form-control" id="email" name="email" maxlength="30" required
+                           onfocus="removeAlert()">
                 </div>
                 <div class="form-group mt-3">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" max="30" required onfocus="removeAlert()">
+                    <input type="password" class="form-control" id="password" name="password" maxlength="30" required
+                           onfocus="removeAlert()">
                 </div>
                 <div class="mt-5">
                     <button type="submit" class="btn">Login</button>
@@ -39,24 +41,26 @@
         </div>
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
             <h6 class="text-center mt-4 mb-4 text-black-50">Register</h6>
-            <form>
+            <form action="{{ url('register') }}" method="post">
+                @csrf
                 <div class="row g-3">
                     <div class="col-md">
-                        <label>Nama Depan</label>
-                        <input type="text" class="form-control">
+                        <label for="firstname">Nama Depan</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" maxlength="30" required>
                     </div>
                     <div class="col-md">
-                        <label>Nama Belakang</label>
-                        <input type="text" class="form-control">
+                        <label for="lastname">Nama Belakang</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" maxlength="30" required>
                     </div>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="inputAddress">Email</label>
-                    <input type="email" class="form-control" id="inputAddress">
+                    <label for="emailRegister">Email</label>
+                    <input type="email" class="form-control" id="emailRegister" name="emailRegister" maxlength="30" required>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="inputAddress">Password</label>
-                    <input type="password" class="form-control" id="inputAddress">
+                    <label for="passwordRegister">Password</label>
+                    <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" maxlength="30"
+                           required>
                 </div>
                 <div class="mt-5">
                     <button type="submit" class="btn">Register</button>

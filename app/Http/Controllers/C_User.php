@@ -46,4 +46,22 @@ class C_User extends Controller
         session()->flush();
         return redirect('login');
     }
+
+    public static function register(Request $request)
+    {
+        $register = M_User::register($request->input());
+        if ($register == 'success') {
+            return redirect('verify-account')->with(['status' => 'success', 'msg' => 'Pendaftaran berhasil, silakan cek email anda untuk melihat kode token anda.']);
+        } elseif ($register == 'email-exist') {
+            return redirect('login')->with(['status' => 'error', 'msg' => 'Email sudah pernah terdaftar, silakan menggunakan email yang lain.']);
+        } else {
+            return redirect('login')->with(['status' => 'error', 'msg' => 'Pendaftaran gagal, periksa kembali data anda.']);
+
+        }
+    }
+
+    public static function verifyAccount()
+    {
+        return view('verifikasi');
+    }
 }

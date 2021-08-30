@@ -26,4 +26,24 @@ class M_User extends Model
             return 'error';
         }
     }
+
+    public static function register($input)
+    {
+        // Check email if exist
+        $email_check = DB::table('users')->select('*')->where('email', $input['emailRegister'])->count();
+        if ($email_check > 0) {
+            return 'email-exist';
+        } else {
+            // Insert data to database
+            $addData = DB::table('users')->insert(['firstname' => $input['firstname'], 'lastname' => $input['lastname'], 'email' => $input['emailRegister'], 'password' => $input['passwordRegister'], 'profile_photo' => 'default.png']);
+            if ($addData) {
+                // Add token
+
+                // Success
+                return 'success';
+            } else {
+                return 'error';
+            }
+        }
+    }
 }
