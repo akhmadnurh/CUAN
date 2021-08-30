@@ -32,13 +32,19 @@
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
             <h6 class="text-center mt-4 mb-4 text-black-50">Register</h6>
             <form>
-                <div class="form-group">
-                    <label for="inputAddress">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                <div class="row g-3">
+                    <div class="col-md">
+                        <label>Nama Depan</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <label>Nama Belakang</label>
+                        <input type="text" class="form-control">
+                    </div>
                 </div>
                 <div class="form-group mt-3">
                     <label for="inputAddress">Email</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <input type="email" class="form-control" id="inputAddress">
                 </div>
                 <div class="form-group mt-3">
                     <label for="inputAddress">Password</label>
