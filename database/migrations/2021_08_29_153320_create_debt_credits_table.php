@@ -14,12 +14,15 @@ class CreateDebtCreditsTable extends Migration
     public function up()
     {
         Schema::create('debt_credits', function (Blueprint $table) {
-            $table->increments('debt_id');
+            $table->tinyInteger('user_id');
+            $table->tinyIncrements('debt_id');
             $table->tinyInteger('nominal');
             $table->tinyInteger('paid');
-            $table->foreign('status_id')->references('status_id')->on('debt_credit_status');
-            $table->foreign('user_id')->references('user_id')->on('user');
+            $table->tinyInteger('status_id');
 
+
+//            $table->foreign('status_id')->references('status_id')->on('debt_credit_statuses');
+//            $table->foreign('user_id')->references('user_id')->on('users');
         });
     }
 

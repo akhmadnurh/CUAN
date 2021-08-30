@@ -14,9 +14,10 @@ class CreateMutationDetailsTable extends Migration
     public function up()
     {
         Schema::create('mutation_details', function (Blueprint $table) {
-            $table->increments('nominal');
+            $table->integer('mutation_id');
+            $table->integer('nominal');
             $table->text('detail_desc');
-            $table->foreign('mutation_id')->references('mutation_id')->on('mutation');
+//            $table->foreign('mutation_id')->references('mutation_id')->on('mutations');
         });
     }
 

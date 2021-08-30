@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDebtCreditStatussTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDebtCreditStatussTable extends Migration
      */
     public function up()
     {
-        Schema::create('debt_credit_statuss', function (Blueprint $table) {
-            $table->increments('status_id');
-            $table->string('status',15);
+        Schema::create('categories', function (Blueprint $table) {
+            $table->tinyIncrements('category_id');
+            $table->string('category_name', 30);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDebtCreditStatussTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('debt_credit_statuss');
+        Schema::dropIfExists('categories');
     }
 }

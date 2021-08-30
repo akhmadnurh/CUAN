@@ -14,9 +14,10 @@ class CreateEmailVerificationsTable extends Migration
     public function up()
     {
         Schema::create('email_verifications', function (Blueprint $table) {
+            $table->tinyInteger('user_id');
             $table->boolean('status');
             $table->tinyInteger('token');
-            $table->foreign('user_id')->references('user_id')->on('user');
+//            $table->foreign('user_id')->references('user_id')->on('users');
 
         });
     }

@@ -14,7 +14,7 @@ class CreateMutationTypesTable extends Migration
     public function up()
     {
         Schema::create('mutation_types', function (Blueprint $table) {
-            $table->increments('type_id');
+            $table->tinyIncrements('type_id');
             $table->string('name',30);
         });
     }

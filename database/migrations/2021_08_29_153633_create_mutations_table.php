@@ -15,13 +15,17 @@ class CreateMutationsTable extends Migration
     {
         Schema::create('mutations', function (Blueprint $table) {
             $table->increments('mutation_id');
+            $table->tinyInteger('user_id');
+            $table->tinyInteger('type_id');
+            $table->tinyInteger('category_id');
             $table->date('date');
             $table->time('time');
-            $table->tinyInteger('total');
             $table->text('description');
-            $table->foreign('user_id')->references('user_id')->on('user');
-            $table->foreign('type_id')->references('type_id')->on('mutation_type');
-            $table->foreign('category_id')->references('category_id')->on('category');
+            $table->integer('total');
+
+//            $table->foreign('user_id')->references('user_id')->on('users');
+//            $table->foreign('type_id')->references('type_id')->on('mutation_types');
+//            $table->foreign('category_id')->references('category_id')->on('categories');
         });
     }
 
