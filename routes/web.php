@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\C_User::class, 'dashboard']);
-Route::get('/login', [\App\Http\Controllers\C_User::class, 'login']);
-Route::post('/login', [\App\Http\Controllers\C_User::class, 'loginProcess']);
+Route::get('/', [C_User::class, 'dashboard']);
+Route::get('/login', [C_User::class, 'login']);
+Route::post('/login', [C_User::class, 'loginProcess']);
+Route::get('/logout', [C_User::class, 'logout']);
