@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [\App\Http\Controllers\C_Overview::class, 'login']);
+Route::get('/', [\App\Http\Controllers\C_User::class, 'dashboard']);
+Route::get('/login', [\App\Http\Controllers\C_User::class, 'login']);
+Route::post('/login', [\App\Http\Controllers\C_User::class, 'loginProcess']);

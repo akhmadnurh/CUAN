@@ -5,27 +5,35 @@
     <ul class="nav justify-content-center mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login"
-                type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+               type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register"
-                type="button" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+               type="button" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
         </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
             <h6 class="text-center mt-4 mb-4 text-black-50">Login</h6>
-            <form>
+            <form action="{{ url('login') }}" method="POST">
+                @csrf
+                @if(session()->has('status'))
+                    <div id="alert">
+                        <div
+                            class="alert {{ session()->get('status') == 'error' ? 'alert-danger' : 'alert-success' }}">{{ session()->get('msg') }}</div>
+
+                    </div>
+                @endif
                 <div class="form-group">
-                    <label for="inputAddress">Email</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" max="30" required onfocus="removeAlert()">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="inputAddress">Password</label>
-                    <input type="password" class="form-control" id="inputAddress">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" max="30" required onfocus="removeAlert()">
                 </div>
                 <div class="mt-5">
-                    <button type="button" class="btn">Login</button>
+                    <button type="submit" class="btn">Login</button>
                 </div>
             </form>
         </div>
@@ -57,4 +65,10 @@
         </div>
     </div>
 </div>
+<script>
+    function removeAlert() {
+        alert = document.getElementById('alert')
+        alert.innerHTML = ''
+    }
+</script>
 @endsection

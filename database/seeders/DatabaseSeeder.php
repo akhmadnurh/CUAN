@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             mutation_detail::class,
             mutation_type::class,
             mutation::class,
-            user::class,
+            users::class,
         ]);
     }
 }
