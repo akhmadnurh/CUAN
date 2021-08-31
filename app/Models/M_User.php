@@ -12,7 +12,7 @@ class M_User extends Model
 
     public static function login($email, $password)
     {
-        $auth = DB::table('users')->select('*')->where('email', $email)->where('password', $password);
+        $auth = DB::table('users')->select('*')->where('email', $email)->where('password', md5($password));
         if ($auth->count() > 0) {
             $userdata = $auth->first();
             // check if email verified
@@ -35,9 +35,13 @@ class M_User extends Model
             return 'email-exist';
         } else {
             // Insert data to database
-            $addData = DB::table('users')->insert(['firstname' => $input['firstname'], 'lastname' => $input['lastname'], 'email' => $input['emailRegister'], 'password' => $input['passwordRegister'], 'profile_photo' => 'default.png']);
+            $addData = DB::table('users')->insert(['firstname' => $input['firstname'], 'lastname' => $input['lastname'], 'email' => $input['emailRegister'], 'password' => md5($input['passwordRegister']), 'profile_photo' => 'default.png']);
             if ($addData) {
                 // Add token
+                $user_id = DB::table('users')->select('user_id')->where('email', $input['emailRegister'])->first();
+                // Generate token
+                $token = rand(1000, 9999);
+                DB::table('email_verifications')->insert(['user_id' => $user_id->user_id, 'status' => 0, 'token' => $token]);
 
                 // Success
                 return 'success';

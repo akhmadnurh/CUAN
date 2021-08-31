@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\C_User;
+use App\Http\Middleware\AuthenticationCheck;
+use App\Http\Middleware\HasLoggedInCheck;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [C_User::class, 'dashboard']);
-Route::get('/login', [C_User::class, 'login']);
-Route::post('/login', [C_User::class, 'loginProcess']);
+
+Route::middleware(AuthenticationCheck::class)->group(function () {
+    Route::get('/', [C_User::class, 'dashboard']);
+});
+
+Route::middleware(HasLoggedInCheck::class)->group(function () {
+    Route::get('/login', [C_User::class, 'login']);
+    Route::post('/login', [C_User::class, 'loginProcess']);
+    Route::post('/register', [C_User::class, 'register']);
+    Route::get('/verify-account', [C_User::class, 'verifyAccount']);
+});
+
 Route::get('/logout', [C_User::class, 'logout']);
-Route::post('/register', [C_User::class, 'register']);
-Route::get('/verify-account', [C_User::class, 'verifyAccount']);
+

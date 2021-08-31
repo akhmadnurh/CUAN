@@ -18,11 +18,11 @@ class C_User extends Controller
 
     public static function dashboard()
     {
-        if (session()->has('loggedIn')) {
+//        if (session()->has('loggedIn')) {
             return view('dashboard');
-        } else {
-            return redirect('login');
-        }
+//        } else {
+//            return redirect('login');
+//        }
     }
 
     public static function loginProcess(Request $request)
