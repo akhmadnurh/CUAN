@@ -44,7 +44,7 @@ class M_User extends Model
                 DB::table('email_verifications')->insert(['user_id' => $user_id->user_id, 'status' => 0, 'token' => $token]);
 
                 // Success
-                return 'success';
+                return $token;
             } else {
                 return 'error';
             }
