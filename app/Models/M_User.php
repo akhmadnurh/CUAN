@@ -50,4 +50,18 @@ class M_User extends Model
             }
         }
     }
+
+    public static function verifyEmail($token)
+    {
+        $verify = DB::table('email_verifications')->select('*')->where('token', $token);
+        $is_valid = $verify->count();
+        if ($is_valid > 0) {
+            // Change status to 1
+            $user_id = $verify->first();
+            DB::table('email_verifications')->where('user_id', $user_id->user_id)->update(['status' => 1]);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

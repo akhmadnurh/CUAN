@@ -26,6 +26,7 @@ Route::middleware(HasLoggedInCheck::class)->group(function () {
     Route::post('/login', [C_User::class, 'loginProcess']);
     Route::post('/register', [C_User::class, 'register']);
     Route::get('/verify-account', [C_User::class, 'verifyAccount']);
+    Route::post('/verify-account', [C_User::class, 'verifyAccountProcess']);
 });
 
 Route::get('/logout', [C_User::class, 'logout']);
