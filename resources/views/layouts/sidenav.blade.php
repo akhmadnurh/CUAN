@@ -22,7 +22,7 @@
                     <a class="nav-link" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
                         aria-current="page" href="#">
                         <i class="bi bi-person-circle"></i>
-                        User
+                        {{ session()->get('firstname') }}
                     </a>
                     {{-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"
                         aria-labelledby="dropdownMenuButton">
@@ -35,14 +35,13 @@
                         <li><a class="dropdown-item" href="#">Separated link</a></li>
                     </ul> --}}
                     <div class="dropdown-menu p-4 text-muted dropdown-menu-end" aria-labelledby="dropdownMenuButton"
-                        style="word-wrap:break-word;max-width: 200px;">
+                         style="word-wrap:break-word;max-width: 200px;">
                         <p>
                             <i class="bi bi-person-circle"></i>
-                            User
+                            {{ session()->get('firstname').' '.session()->get('lastname') }}
                         </p>
-                        <p>user@gmail.com</p>
-                        <p>09302194843242</p>
-                        <a href="#" class="btn btn-primary">edit</a>
+                        <p>{{ session()->get('email') }}</p>
+                        <a href="{{ url('edit-profile') }}" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
                 <button class="btn btn-toogle" type="button" onclick="openNav()">

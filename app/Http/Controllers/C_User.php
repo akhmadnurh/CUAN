@@ -20,11 +20,7 @@ class C_User extends Controller
 
     public static function dashboard()
     {
-//        if (session()->has('loggedIn')) {
         return view('dashboard');
-//        } else {
-//            return redirect('login');
-//        }
     }
 
     public static function loginProcess(Request $request)
@@ -78,5 +74,16 @@ class C_User extends Controller
         } else {
             return redirect('verify-account')->with(['status' => 'error', 'msg' => 'Token tidak sesuai']);
         }
+    }
+
+    public static function editProfile()
+    {
+        $data = M_User::getUserData(session()->get('user_id'));
+        return view('editProfile', ['data' => $data]);
+    }
+
+    public static function editProfileProcess(Request $request)
+    {
+        $edit = M_User::editProfile(session()->get('user_id'), $request->input());
     }
 }

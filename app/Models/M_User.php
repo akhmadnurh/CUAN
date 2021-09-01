@@ -18,6 +18,8 @@ class M_User extends Model
             // check if email verified
             $verification = DB::table('email_verifications')->select('*')->where('user_id', $userdata->user_id)->first();
             if ($verification->status == 1) {
+                $data = $auth->first();
+                session(['user_id' => $data->user_id, 'firstname' => $data->firstname, 'lastname' => $data->lastname, 'email' => $data->email]);
                 return 'success';
             } else {
                 return 'email-verification-error';
@@ -63,5 +65,20 @@ class M_User extends Model
         } else {
             return false;
         }
+    }
+
+    public static function editProfile($id, $input)
+    {
+        $edit = DB::table('users')->where('user_id', $id)->update(['firstname' => $input['firstname'], 'lastname' => $input['lastname']]);
+        if ($edit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function getUserData($id)
+    {
+        return DB::table('users')->select('*')->where('user_id', $id)->first();
     }
 }
