@@ -24,18 +24,8 @@
                         <i class="bi bi-person-circle"></i>
                         {{ session()->get('firstname') }}
                     </a>
-                    {{-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"
-                        aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                    </ul> --}}
                     <div class="dropdown-menu p-4 text-muted dropdown-menu-end" aria-labelledby="dropdownMenuButton"
-                         style="word-wrap:break-word;max-width: 200px;">
+                        style="word-wrap:break-word;max-width: 200px;">
                         <p>
                             <i class="bi bi-person-circle"></i>
                             {{ session()->get('firstname').' '.session()->get('lastname') }}
@@ -55,8 +45,40 @@
     <div id="mySidebar" class="sidebar">
         <a href="/">Dashboard</a>
         <a href="#">Hutang Piutang</a>
-        <a href="#">Pengaturan</a>
-        <a href="#">Riwayat</a>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <p class="accordion-header" id="panelsStayOpen-headingOne">
+                <a type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                    aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Pengaturan
+                    <i class="bi bi-chevron-compact-down logdrop"></i>
+                </a>
+
+            </p>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="dropside">
+                    <a href="#">Edit Profile</a>
+                    <a href="#">Edit Kategori</a>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <p class="accordion-header" id="panelsStayOpen-headingOne">
+                <a type="button" data-bs-toggle="collapse" data-bs-target="#panels" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    Riwayat
+                    <i class="bi bi-chevron-compact-down logdropp"></i>
+                </a>
+            </p>
+            <div id="panels" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="dropside">
+                    <a href="#">Transaksi Keluar</a>
+                    <a href="#">Transaksi Masuk</a>
+                    <a href="#">Hutang</a>
+                    <a href="#">Piutang</a>
+                </div>
+            </div>
+        </div>
         <a href="{{ url('logout') }}">Logout</a>
     </div>
 
