@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_Mutation;
 use App\Http\Controllers\C_User;
 use App\Http\Middleware\AuthenticationCheck;
 use App\Http\Middleware\HasLoggedInCheck;
@@ -22,6 +23,9 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/edit-profile', [C_User::class, 'editProfile']);
     Route::post('/edit-profile', [C_User::class, 'editProfileProcess']);
     Route::post('/edit-password', [C_User::class, 'editPasswordProcess']);
+    Route::get('/incoming-transactions', [C_Mutation::class, 'incomingTransactions']);
+    Route::get('/outgoing-transactions', [C_Mutation::class, 'outgoingTransactions']);
+    Route::post('/add-mutation', [C_Mutation::class, 'addMutation']);
 });
 
 //Route::get('/', 'C_Mutation')->name('dashboard');

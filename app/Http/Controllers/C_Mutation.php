@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\M_Mutation;
 use Illuminate\Http\Request;
-use App\Http\Models\M_Mutation;
 
-class C_Mutations extends Controller
+class C_Mutation extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,72 +17,27 @@ class C_Mutations extends Controller
     {
         // $total = collect('total');
         // dump($total->all());
-        // return view('dashboard');   
+        // return view('dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function incomingTransactions()
     {
-        //
+        return view('riwayatMasuk');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function outgoingTransactions()
     {
-        //
+        return view('riwayatKeluar');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function addMutation(Request $request)
     {
-        //
+        $add = M_Mutation::addMutation(session()->get('user_id'), $request->input());
+        if ($add) {
+            return redirect('/')->with(['status' => 'success', 'msg' => 'Transaksi berhasil disimpan.']);
+        } else {
+            return redirect('/')->with(['status' => 'error', 'msg' => 'Transaksi gagal disimpan.']);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

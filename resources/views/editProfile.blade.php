@@ -7,7 +7,7 @@
             <div>
                 <i class="bi-person-circle mr-2" style="font-size: 100px"></i>
                 <h5>{{ session()->get('firstname').' '.session()->get('lastname') }}</h5>
-                <h6>email</h6>
+                <h6>{{ session()->get('email') }}</h6>
             </div>
         </div>
         <div class="col-lg">

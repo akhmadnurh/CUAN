@@ -76,8 +76,8 @@
             </p>
             <div id="panels" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="dropside">
-                    <a href="#">Transaksi Keluar</a>
-                    <a href="#">Transaksi Masuk</a>
+                    <a href="{{ url('outgoing-transactions') }}">Transaksi Keluar</a>
+                    <a href="{{ url('incoming-transactions') }}">Transaksi Masuk</a>
                     <a href="#">Hutang</a>
                     <a href="#">Piutang</a>
                 </div>

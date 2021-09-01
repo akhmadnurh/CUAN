@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\RegisterToken;
+use App\Models\M_Mutation;
 use App\Models\M_User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -20,7 +21,8 @@ class C_User extends Controller
 
     public static function dashboard()
     {
-        $data['categories'] = M_User::getCategories();
+        $data['categories'] = M_Mutation::getCategories();
+        $data['types'] = M_Mutation::getMutationTypes();
         return view('dashboard', $data);
     }
 
