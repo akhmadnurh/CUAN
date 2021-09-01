@@ -109,6 +109,11 @@
                 "info": false
             });
             $('#riwayat').DataTable();
+            $('#kategori').DataTable({
+                "showing": false,
+                "paging": false,
+                "info": false
+            })
         });
 
     </script>
