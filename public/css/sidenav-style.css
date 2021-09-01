@@ -36,6 +36,12 @@
     margin-left: 116px !important;
 }
 
+.dropdown-menu{ 
+    width: 350px!important; 
+    box-shadow: 1px 1px 5px #a1a1a1;
+    border-radius: 10px;
+}
+
 
 .sidebar a {
     padding: 8px 8px 8px 32px;
