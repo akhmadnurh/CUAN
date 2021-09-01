@@ -2,8 +2,8 @@
 
 @section('container')
 <div class="container">
-    <div class="mt-5">
-        <h6><b>Riwayat Terakhir</b></h6>
+    <div class="mt-4 mb-4">
+        <h6><b>Riwayat Transaksi Masuk</b></h6>
     </div>
     <div class="table-responsive mt-2">
         <table id="riwayat" class="display" style="width:100%">
