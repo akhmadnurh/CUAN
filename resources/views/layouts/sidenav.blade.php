@@ -24,20 +24,21 @@
 
             <form class="d-flex">
                 <div class="btn-group">
-                    <a class="nav-link" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-                        aria-current="page" href="#">
+                    <a type="button" class="nav-link" data-bs-toggle="dropdown" data-bs-display="static"
+                        aria-expanded="false">
                         <i class="bi bi-person-circle"></i>
                         {{ session()->get('firstname') }}
                     </a>
-                    <div class="dropdown-menu p-4 text-muted dropdown-menu-end" aria-labelledby="dropdownMenuButton"
-                        style="word-wrap:break-word;max-width: 200px;">
-                        <p>
-                            <i class="bi bi-person-circle"></i>
-                            {{ session()->get('firstname').' '.session()->get('lastname') }}
-                        </p>
-                        <p>{{ session()->get('email') }}</p>
-                        <a href="{{ url('edit-profile') }}" class="btn btn-primary">Edit</a>
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end text-center p-3">
+                        <li>
+                            <i class="fs-3 bi-person-circle"></i>
+                            <p>
+                                {{ session()->get('firstname').' '.session()->get('lastname') }}
+                                <br>
+                                {{ session()->get('email') }}</p>
+                            <a href="{{ url('edit-profile') }}" class="btn btn-primary btn-sm">Edit</a>
+                        </li>
+                    </ul>
                 </div>
 
             </form>
