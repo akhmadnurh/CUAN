@@ -1,13 +1,13 @@
 @extends('layouts.sidenav')
-@section('container')
 
+@section('container')
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3">
         <div class="col pt-4">
             <div class="card h-100">
-                <div class="card-body p-4" id="total">
+                <div class="card-body p-4" id="saldo">
                     <h5 class="card-title">Saldo : </h5>
-                    <h5 class="card-title">Rp. @{{ csrf_token($total) }} ,-</h5>
+                    <h5 class="card-title">Rp. {{ $saldo }},-</h5>
                 </div>
                 <div class="card-footer">
                     <small>More Info</small>
@@ -18,7 +18,7 @@
             <div class="card h-100">
                 <div class="card-body p-4" id="hutang">
                     <h5 class="card-title">Hutang : </h5>
-                    <h5 class="card-title">Rp. 0,-</h5>
+                    <h5 class="card-title">Rp. {{ $hutang }},-</h5>
                 </div>
                 <div class="card-footer">
                     <small>More Info</small>
@@ -29,7 +29,7 @@
             <div class="card h-100">
                 <div class="card-body p-4" id="piutang">
                     <h5 class="card-title">Piutang : </h5>
-                    <h5 class="card-title">Rp 0,- </h5>
+                    <h5 class="card-title">Rp {{ $piutang }},- </h5>
                 </div>
                 <div class="card-footer">
                     <small>More Info</small>
@@ -44,7 +44,7 @@
                 data-bs-whatever="@getbootstrap">
                 <div class="card-body p-4 text-center">
                     <h5 class="card-title">Tambah Catatan</h5>
-                    <i class="fs-3 bi-plus-circle-fill"></i>
+                    <i class="fs-5 bi-plus-circle-fill"></i>
                 </div>
             </div>
         </div>
@@ -89,33 +89,31 @@
         </div>
     </div>
 
-    <div class="mt-5">
-        <h6><b>Riwayat Terakhir</b></h6>
-    </div>
-    <div class="table-responsive mt-2">
+    {{-- <div class="table-responsive">
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Keterangan</th>
-                    <th>Waktu</th>
-                    <th>Tanggal Transaksi</th>
-                    <th>Jumlah</th>
-                    <th>Kategori</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>menalangi kekurangan seminar</td>
-                    <td>19.00</td>
-                    <td>27 Februari 2021</td>
-                    <td>250.000</td>
-                    <td>Piutang</td>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>$320,800</td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> --}}
 </div>
-
 
 
 

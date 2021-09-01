@@ -23,6 +23,8 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::post('/edit-profile', [C_User::class, 'editProfileProcess']);
 });
 
+//Route::get('/', 'C_Mutation')->name('dashboard');
+
 Route::middleware(HasLoggedInCheck::class)->group(function () {
     Route::get('/login', [C_User::class, 'login']);
     Route::post('/login', [C_User::class, 'loginProcess']);
@@ -30,6 +32,8 @@ Route::middleware(HasLoggedInCheck::class)->group(function () {
     Route::get('/verify-account', [C_User::class, 'verifyAccount']);
     Route::post('/verify-account', [C_User::class, 'verifyAccountProcess']);
 });
+
+// Route::get('/', [C_Mutation::class, 'total'] );
 
 Route::get('/logout', [C_User::class, 'logout']);
 
