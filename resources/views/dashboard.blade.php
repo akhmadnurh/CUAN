@@ -6,7 +6,7 @@
         <div class="col pt-4">
             <div class="card h-100">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Saldo : </h5>
+                    <h6 class="card-title">Saldo : </h6>
                     <h5 class="card-title">Rp 100.000,- </h5>
                 </div>
                 <div class="card-footer">
@@ -17,7 +17,7 @@
         <div class="col pt-4">
             <div class="card h-100">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Hutang : </h5>
+                    <h6 class="card-title">Hutang : </h6>
                     <h5 class="card-title">Rp 100.000,- </h5>
                 </div>
                 <div class="card-footer">
@@ -28,7 +28,7 @@
         <div class="col pt-4">
             <div class="card h-100">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Piutang : </h5>
+                    <h6 class="card-title">Piutang : </h6>
                     <h5 class="card-title">Rp 100.000,- </h5>
                 </div>
                 <div class="card-footer">
@@ -44,7 +44,7 @@
                 data-bs-whatever="@getbootstrap">
                 <div class="card-body p-4 text-center">
                     <h5 class="card-title">Tambah Catatan</h5>
-                    <i class="fs-5 bi-plus-circle-fill"></i>
+                    <i class="fs-3 bi-plus-circle-fill"></i>
                 </div>
             </div>
         </div>
@@ -89,31 +89,33 @@
         </div>
     </div>
 
-    {{-- <div class="table-responsive">
+    <div class="mt-5">
+        <h6><b>Riwayat Terakhir</b></h6>
+    </div>
+    <div class="table-responsive mt-2">
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Keterangan</th>
+                    <th>Waktu</th>
+                    <th>Tanggal Transaksi</th>
+                    <th>Jumlah</th>
+                    <th>Kategori</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>menalangi kekurangan seminar</td>
+                    <td>19.00</td>
+                    <td>27 Februari 2021</td>
+                    <td>250.000</td>
+                    <td>Piutang</td>
                 </tr>
             </tbody>
         </table>
-    </div> --}}
+    </div>
 </div>
+
 
 
 

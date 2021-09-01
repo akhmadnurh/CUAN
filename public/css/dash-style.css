@@ -40,13 +40,18 @@
     background-color: #9ABBDE;
 }
 
+.card{
+    border-radius: 14px;
+    overflow: hidden;
+}
+
 .card-footer:hover{
     background-color: #4F8CB8;
-    transition: 0.8s;
+    transition: 0.5s;
 }
 
 .tambah:hover{
     background-color: #4F8CB8;
-    transition: 0.8s;
+    transition: 0.5s;
     color: white;
 }
