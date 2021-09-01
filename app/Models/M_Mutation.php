@@ -54,4 +54,19 @@ class M_Mutation extends Model
     {
         return DB::table('mutations')->join('categories', 'mutations.category_id', '=', 'categories.category_id')->join('mutation_types', 'mutations.type_id', '=', 'mutation_types.type_id')->select('*')->where('user_id', $id)->where('mutations.type_id', 2)->orderBy('date', 'desc')->get();
     }
+
+    public static function getLatestTransactions($id)
+    {
+        return DB::table('mutations')->join('categories', 'mutations.category_id', '=', 'categories.category_id')->join('mutation_types', 'mutations.type_id', '=', 'mutation_types.type_id')->select('*')->where('user_id', $id)->orderBy('date', 'desc')->limit(5)->get();
+    }
+
+    public static function getDebts($id)
+    {
+        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->select('*')->where('user_id', $id)->where('')->orderBy('debt_id', 'desc')->get();
+    }
+
+    public static function getCredits($id)
+    {
+        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->select('*')->where('user_id', $id)->orderBy('debt_id', 'desc')->get();
+    }
 }

@@ -78,8 +78,8 @@
                 <div class="dropside">
                     <a href="{{ url('outgoing-transactions') }}">Transaksi Keluar</a>
                     <a href="{{ url('incoming-transactions') }}">Transaksi Masuk</a>
-                    <a href="#">Hutang</a>
-                    <a href="#">Piutang</a>
+                    <a href="{{ url('debts') }}">Hutang</a>
+                    <a href="{{ url('credits') }}">Piutang</a>
                 </div>
             </div>
         </div>

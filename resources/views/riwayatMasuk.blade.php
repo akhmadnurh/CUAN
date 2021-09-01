@@ -32,10 +32,4 @@
         </table>
     </div>
 </div>
-
-
-
-
-
-
 @endsection

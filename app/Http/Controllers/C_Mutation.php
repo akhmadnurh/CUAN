@@ -42,4 +42,16 @@ class C_Mutation extends Controller
         }
     }
 
+    public function debts()
+    {
+        $data['debts'] = M_Mutation::getDebts(session()->get('user_id'));
+        return view('riwayatHutang', $data);
+    }
+
+    public function credits()
+    {
+        $data['credits'] = M_Mutation::getCredits(session()->get('user_id'));
+        return view('riwayatHutang', $data);
+    }
+
 }

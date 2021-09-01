@@ -3,7 +3,7 @@
 @section('container')
 <div class="col-lg-4 form text-center">
     <h5>Verifikasi Akun</h5>
-    <p class="mt-5">Masukkan Kode OTP</p>
+    <p class="mt-5">Masukkan Kode</p>
     <form action="{{ url('verify-account') }}" method="post">
         @csrf
         <div id="divOuter">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="mt-2">
-            <small class="text-secondary">*Kode OTP telah dikirim ke email anda</small>
+            <small class="text-secondary">*Token verifikasi akun telah dikirim ke email anda</small>
         </div>
 
         <div class="mt-5">

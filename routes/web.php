@@ -25,6 +25,8 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::post('/edit-password', [C_User::class, 'editPasswordProcess']);
     Route::get('/incoming-transactions', [C_Mutation::class, 'incomingTransactions']);
     Route::get('/outgoing-transactions', [C_Mutation::class, 'outgoingTransactions']);
+    Route::get('/debts', [C_Mutation::class, 'debts']);
+    Route::get('/credits', [C_Mutation::class, 'credits']);
     Route::post('/add-mutation', [C_Mutation::class, 'addMutation']);
 });
 

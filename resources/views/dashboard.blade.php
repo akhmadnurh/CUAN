@@ -117,36 +117,36 @@
         </div>
     </div>
 
-        <div class="mt-5">
+    <div class="mt-5">
         <h6><b>Riwayat Terakhir</b></h6>
     </div>
     <div class="table-responsive mt-2">
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>No. </th>
                     <th>Keterangan</th>
+                    <th>Kategori</th>
                     <th>Waktu</th>
                     <th>Tanggal Transaksi</th>
-                    <th>Jumlah</th>
-                    <th>Kategori</th>
+                    <th>Total</th>
+                    <th>Jenis Transaksi</th>
                 </tr>
             </thead>
             <tbody>
+            @foreach($histories as $key => $transaction)
                 <tr>
-                    <td>menalangi kekurangan seminar</td>
-                    <td>19.00</td>
-                    <td>27 Februari 2021</td>
-                    <td>250.000</td>
-                    <td>Piutang</td>
+                    <td>{{ ++$key }}</td>
+                    <td>{{ $transaction->description }}</td>
+                    <td>{{ $transaction->category_name }}</td>
+                    <td>{{ $transaction->time }}</td>
+                    <td>{{ $transaction->date }}</td>
+                    <td>Rp {{ number_format($transaction->total, 2, ',', '.') }}</td>
+                    <td>{{ $transaction->name }}</td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
 </div>
-
-
-
-
-
-
 @endsection

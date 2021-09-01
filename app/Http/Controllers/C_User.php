@@ -23,6 +23,7 @@ class C_User extends Controller
     {
         $data['categories'] = M_Mutation::getCategories();
         $data['types'] = M_Mutation::getMutationTypes();
+        $data['histories'] = M_Mutation::getLatestTransactions(session()->get('user_id'));
         return view('dashboard', $data);
     }
 
