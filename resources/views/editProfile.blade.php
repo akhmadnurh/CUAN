@@ -1,37 +1,72 @@
 @extends('layouts.sidenav')
 
 @section('container')
-    <div class="container">
-        <h6>Edit Profile</h6>
-        <ul class="list-group w-50">
-            <li class="list-group-item"><i class="fs-3 bi-person-circle mr-2"></i> Jojon</li>
-            <form action="{{ url('edit-profile') }}" method="post">
-                @csrf
+<div class="container">
+    <div class="row">
+        <div class="col-md pt-4">
+            <h6>Edit Profile</h6>
+            <ul class="list-group mt-3">
                 <li class="list-group-item">
-                    <div class="row g-3">
-                        <div class="col-md">
-                            <label for="firstname">Nama Depan</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" maxlength="30"
-                                   required value="{{ $data->firstname }}">
+                    <i class="fs-3 bi-person-circle mr-2"></i> Jojon</li>
+                <form action="{{ url('edit-profile') }}" method="post">
+                    @csrf
+                    <li class="list-group-item">
+                        <div class="row g-3">
+                            <div class="col-md">
+                                <label for="firstname">Nama Depan</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname" maxlength="30"
+                                    required value="{{ $data->firstname }}">
+                            </div>
+                            <div class="col-md">
+                                <label for="lastname">Nama Belakang</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" maxlength="30"
+                                    required value="{{ $data->lastname }}">
+                            </div>
                         </div>
-                        <div class="col-md">
-                            <label for="lastname">Nama Belakang</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" maxlength="30"
-                                   required value="{{ $data->lastname }}">
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="passwordRegister">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" maxlength="30"
+                                required>
                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-group mt-3">
-                        <label for="passwordRegister">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" maxlength="30"
-                               required>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </li>
-            </form>
-        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+                </form>
+            </ul>
+        </div>
+        <div class="col-md pt-4">
+            <h6>Ubah Password</h6>
+            <ul class="list-group mt-3">
+                <form action="{{ url('edit-profile') }}" method="post">
+                    @csrf
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="">Password Lama</label>
+                            <input type="password" class="form-control" id="" name="" maxlength="30" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="">Password Baru</label>
+                            <input type="password" class="form-control" id="" name="" maxlength="30" required>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="">Konfirmasi Password Lama</label>
+                            <input type="password" class="form-control" id="" name="" maxlength="30"
+                                required>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </li>
+                </form>
+            </ul>
+        </div>
     </div>
+</div>
 @endsection
