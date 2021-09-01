@@ -22,12 +22,14 @@ class C_Mutation extends Controller
 
     public function incomingTransactions()
     {
-        return view('riwayatMasuk');
+        $data['transactions'] = M_Mutation::getIncomingTransactions(session()->get('user_id'));
+        return view('riwayatMasuk', $data);
     }
 
     public function outgoingTransactions()
     {
-        return view('riwayatKeluar');
+        $data['transactions'] = M_Mutation::getOutgoingTransactions(session()->get('user_id'));
+        return view('riwayatKeluar', $data);
     }
 
     public function addMutation(Request $request)

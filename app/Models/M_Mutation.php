@@ -44,4 +44,14 @@ class M_Mutation extends Model
             return false;
         }
     }
+
+    public static function getIncomingTransactions($id)
+    {
+        return DB::table('mutations')->join('categories', 'mutations.category_id', '=', 'categories.category_id')->join('mutation_types', 'mutations.type_id', '=', 'mutation_types.type_id')->select('*')->where('user_id', $id)->where('mutations.type_id', 1)->orderBy('date', 'desc')->get();
+    }
+
+    public static function getOutgoingTransactions($id)
+    {
+        return DB::table('mutations')->join('categories', 'mutations.category_id', '=', 'categories.category_id')->join('mutation_types', 'mutations.type_id', '=', 'mutation_types.type_id')->select('*')->where('user_id', $id)->where('mutations.type_id', 2)->orderBy('date', 'desc')->get();
+    }
 }

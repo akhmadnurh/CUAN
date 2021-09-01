@@ -9,21 +9,25 @@
         <table id="riwayat" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>No. </th>
                     <th>Keterangan</th>
+                    <th>Kategori</th>
                     <th>Waktu</th>
                     <th>Tanggal Transaksi</th>
-                    <th>Jumlah</th>
-                    <th>Kategori</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>menalangi kekurangan seminar</td>
-                    <td>19.00</td>
-                    <td>27 Februari 2021</td>
-                    <td>250.000</td>
-                    <td>Piutang</td>
-                </tr>
+                @foreach($transactions as $key => $transaction)
+                    <tr>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $transaction->description }}</td>
+                        <td>{{ $transaction->category_name }}</td>
+                        <td>{{ $transaction->time }}</td>
+                        <td>{{ $transaction->date }}</td>
+                        <td>Rp {{ number_format($transaction->total, 2, ',', '.') }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
