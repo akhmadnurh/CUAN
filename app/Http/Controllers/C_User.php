@@ -20,7 +20,8 @@ class C_User extends Controller
 
     public static function dashboard()
     {
-        return view('dashboard');
+        $data['categories'] = M_User::getCategories();
+        return view('dashboard', $data);
     }
 
     public static function loginProcess(Request $request)

@@ -101,4 +101,9 @@ class M_User extends Model
             return false;
         }
     }
+
+    public static function getCategories()
+    {
+        return DB::table('categories')->select('*')->get();
+    }
 }

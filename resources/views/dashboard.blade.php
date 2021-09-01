@@ -57,34 +57,38 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Catatan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form action="{{ url('add-mutation') }}" method="post">
+                    <div class="modal-body">
                         <div class="mb-3">
                             <label for="nominal" class="col-form-label">Nominal</label>
-                            <input type="number" class="form-control" id="nominal">
+                            <input type="number" class="form-control" id="nominal" min="0" name="total" required>
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Kategori</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <select name="category" id="" class="form-select" required>
+                                @foreach($categories as $cat){
+                                <option value="{{ $cat->category_id }}">{{ $cat->category_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="tanggal" class="col-form-label">Tanggal</label>
-                            <input type="date" class="form-control" id="tanggal">
+                            <input type="date" class="form-control" id="tanggal" name="date" required>
                         </div>
                         <div class="mb-3">
                             <label for="waktu" class="col-form-label">Waktu</label>
-                            <input type="time" class="form-control" id="waktu">
+                            <input type="time" class="form-control" id="waktu" name="time" required>
                         </div>
                         <div class="mb-3">
                             <label for="catatan" class="col-form-label">Catatan/Keterangan:</label>
-                            <textarea class="form-control" id="catatan"></textarea>
+                            <textarea class="form-control" id="catatan" required></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
