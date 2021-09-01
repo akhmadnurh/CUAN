@@ -1,5 +1,9 @@
-.navbar{
+.navbar {
     background-color: #4F8CB8;
+}
+
+.nav-link:hover{
+ color: #353955;
 }
 
 .sidebar {
@@ -19,28 +23,26 @@
     z-index: 2 !important;
 }
 
-.accordion{
+.accordion {
     color: white !important;
 }
 
-.dropside{
+.dropside {
     background-color: #353955;
     padding-left: 20px;
 }
 
-.logdrop{
-    margin-left: 90px !important;
+.logdrop {
+    position: absolute;
+    right: 20px !important;
 }
 
-.logdropp{
-    margin-left: 116px !important;
-}
-
-.dropdown-menu{ 
-    width: 350px!important; 
+.dropdown-menu {
+    width: 350px !important;
     box-shadow: 1px 1px 5px #a1a1a1;
     border-radius: 10px;
 }
+
 
 
 .sidebar a {
@@ -72,6 +74,10 @@
     border: none;
 }
 
+.list-side:hover {
+    background-color: #353955;
+}
+
 .main {
     margin-top: 50px;
 }
@@ -83,6 +89,10 @@
 #main {
     transition: margin-left .5s;
     padding: 16px;
+}
+
+.icon-side{
+    margin-right: 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

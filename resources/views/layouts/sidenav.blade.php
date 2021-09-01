@@ -17,7 +17,7 @@
         <div class="container-fluid container">
             <div class="d-flex">
                 <a class="navbar-brand" href="/">CUAN</a>
-                <button class="btn btn-toogle" type="button" onclick="openNav()">
+                <button class="btn" type="button" onclick="openNav()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -47,13 +47,13 @@
     </nav>
 
     <div id="mySidebar" class="sidebar">
-        <a href="/">Dashboard</a>
-        <a href="#">Hutang Piutang</a>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
+        <a href="/" class="list-side"><i class="bi bi-speedometer icon-side"></i>Dashboard</a>
+        <a href="#" class="list-side"><i class="bi bi-cash-coin icon-side"></i>Hutang Piutang</a>
+        <div class="accordion list-side" id="accordionPanelsStayOpenExample">
             <p class="accordion-header" id="panelsStayOpen-headingOne">
                 <a type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
                     aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    Pengaturan
+                    <i class="bi bi-sliders icon-side"></i>Pengaturan
                     <i class="bi bi-chevron-compact-down logdrop"></i>
                 </a>
 
@@ -66,12 +66,12 @@
                 </div>
             </div>
         </div>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion list-side" id="accordionPanelsStayOpenExample">
             <p class="accordion-header" id="panelsStayOpen-headingOne">
                 <a type="button" data-bs-toggle="collapse" data-bs-target="#panels" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                    Riwayat
-                    <i class="bi bi-chevron-compact-down logdropp"></i>
+                    <i class="bi bi-clock-history icon-side"></i>Riwayat
+                    <i class="bi bi-chevron-compact-down logdrop"></i>
                 </a>
             </p>
             <div id="panels" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url('logout') }}">Logout</a>
+        <a href="{{ url('logout') }}" class="list-side"><i class="bi bi-box-arrow-right icon-side"></i>Logout</a>
     </div>
 
     <div id="main" class="main">
