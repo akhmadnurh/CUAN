@@ -85,5 +85,30 @@ class C_User extends Controller
     public static function editProfileProcess(Request $request)
     {
         $edit = M_User::editProfile(session()->get('user_id'), $request->input());
+        if ($edit) {
+            session(['firstname' => $request->input('firstname'), 'lastname' => $request->input('lastname')]);
+            return redirect('edit-profile')->with(['profile-status' => 'success', 'profile-msg' => 'Data berhasil diubah.']);
+        } else {
+            return redirect('edit-profile')->with(['profile-status' => 'error', 'profile-msg' => 'Data gagal diubah.']);
+        }
+    }
+
+    public static function editPasswordProcess(Request $request)
+    {
+        // Check old password
+        $check = M_User::checkPassword(session()->get('user_id'), $request->input('passwordOld'));
+
+        if ($check) {
+            // Change password
+            $edit = M_User::editPassword(session()->get('user_id'), $request->input());
+            if ($edit) {
+                return redirect('edit-profile')->with(['password-status' => 'success', 'password-msg' => 'Password berhasil diubah.']);
+            } else {
+                return redirect('edit-profile')->with(['password-status' => 'error', 'password-msg' => 'Password gagal diubah.']);
+            }
+        } else {
+            return redirect('edit-profile')->with(['password-status' => 'error', 'password-msg' => 'Password lama tidak sesuai.']);
+        }
+
     }
 }

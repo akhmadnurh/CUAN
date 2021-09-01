@@ -15,9 +15,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid container">
-            <a class="navbar-brand" href="/">CUAN</a>
-            <form class="d-flex">
+            <div class="d-flex">
+                <a class="navbar-brand" href="/">CUAN</a>
+                <button class="btn btn-toogle" type="button" onclick="openNav()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
+            <form class="d-flex">
                 <div class="btn-group">
                     <a class="nav-link" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
                         aria-current="page" href="#">
@@ -34,9 +39,7 @@
                         <a href="{{ url('edit-profile') }}" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
-                <button class="btn btn-toogle" type="button" onclick="openNav()">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
             </form>
 
         </div>
@@ -57,7 +60,7 @@
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="dropside">
-                    <a href="#">Edit Profile</a>
+                    <a href="{{  url('edit-profile') }}">Edit Profile</a>
                     <a href="#">Edit Kategori</a>
                 </div>
             </div>

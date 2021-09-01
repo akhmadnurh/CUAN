@@ -81,4 +81,24 @@ class M_User extends Model
     {
         return DB::table('users')->select('*')->where('user_id', $id)->first();
     }
+
+    public static function editPassword($id, $input)
+    {
+        $edit = DB::table('users')->where('user_id', $id)->update(['password' => md5($input['passwordNew'])]);
+        if ($edit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function checkPassword($id, $pwd)
+    {
+        $check = DB::table('users')->select('*')->where('user_id', $id)->where('password', md5($pwd))->count();
+        if ($check > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

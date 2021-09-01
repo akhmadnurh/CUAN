@@ -21,6 +21,7 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/', [C_User::class, 'dashboard']);
     Route::get('/edit-profile', [C_User::class, 'editProfile']);
     Route::post('/edit-profile', [C_User::class, 'editProfileProcess']);
+    Route::post('/edit-password', [C_User::class, 'editPasswordProcess']);
 });
 
 //Route::get('/', 'C_Mutation')->name('dashboard');
