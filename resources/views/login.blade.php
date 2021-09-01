@@ -41,26 +41,38 @@
         </div>
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
             <h6 class="text-center mt-4 mb-4 text-black-50">Register</h6>
-            <form action="{{ url('register') }}" method="post">
+            <form action="{{ url('register') }}" method="post" onsubmit="return verifyPassword()">
+                <div id="alert-register">
+                </div>
                 @csrf
                 <div class="row g-3">
                     <div class="col-md">
                         <label for="firstname">Nama Depan</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" maxlength="30" required>
+                        <input type="text" class="form-control" id="firstname" name="firstname" maxlength="30" required
+                               onfocus="removeRegisterAlert()">
                     </div>
                     <div class="col-md">
                         <label for="lastname">Nama Belakang</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" maxlength="30" required>
+                        <input type="text" class="form-control" id="lastname" name="lastname" maxlength="30" required
+                               onfocus="removeRegisterAlert()">
                     </div>
                 </div>
                 <div class="form-group mt-3">
                     <label for="emailRegister">Email</label>
-                    <input type="email" class="form-control" id="emailRegister" name="emailRegister" maxlength="30" required>
+                    <input type="email" class="form-control" id="emailRegister" name="emailRegister" maxlength="30"
+                           required onfocus="removeRegisterAlert()">
                 </div>
                 <div class="form-group mt-3">
                     <label for="passwordRegister">Password</label>
-                    <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" maxlength="30"
-                           required>
+                    <input type="password" class="form-control" id="passwordRegister" name="passwordRegister"
+                           maxlength="30"
+                           required onfocus="removeRegisterAlert()">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="passwordRegister">Ulangi Password</label>
+                    <input type="password" class="form-control" id="passwordRegisterV" name="passwordRegisterV"
+                           maxlength="30"
+                           required onfocus="removeRegisterAlert()">
                 </div>
                 <div class="mt-5">
                     <button type="submit" class="btn">Register</button>
@@ -70,9 +82,27 @@
     </div>
 </div>
 <script>
-    function removeAlert() {
-        alert = document.getElementById('alert')
-        alert.innerHTML = ''
+    const removeAlert = () => {
+        const alert = document.getElementById('alert')
+        alert.innerHTML = '<div></div>'
+    }
+
+    const removeRegisterAlert = () => {
+        const alertRegister = document.getElementById('alert-register')
+        alertRegister.innerHTML = '<div></div>'
+    }
+
+    const verifyPassword = () => {
+        pwd = document.getElementById('passwordRegister').value
+        pwdV = document.getElementById('passwordRegisterV').value
+        alert = document.getElementById('alert-register')
+
+        if (pwd !== pwdV) {
+            alert.innerHTML = '<div class="alert alert-danger">Password tidak sesuai.</div>'
+            return false
+        } else {
+            return true
+        }
     }
 </script>
 @endsection
