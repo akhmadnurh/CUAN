@@ -109,15 +109,15 @@ class M_Mutation extends Model
 
     public static function getTotalDebt($id)
     {
-        $total = DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('nominal');
-        $paid = DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('paid');
+        $total = DB::table('debt_credits')->where('type_id', 1)->where('user_id', $id)->where('status_id', 2)->sum('nominal');
+        $paid = DB::table('debt_credits')->where('type_id', 1)->where('user_id', $id)->where('status_id', 2)->sum('paid');
         return $total - $paid;
     }
 
     public static function getTotalCredit($id)
     {
-        $total = DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('nominal');
-        $paid = DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('paid');
+        $total = DB::table('debt_credits')->where('type_id', 2)->where('user_id', $id)->where('status_id', 2)->sum('nominal');
+        $paid = DB::table('debt_credits')->where('type_id', 2)->where('user_id', $id)->where('status_id', 2)->sum('paid');
         return $total - $paid;
     }
 
