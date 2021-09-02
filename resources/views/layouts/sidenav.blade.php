@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url('logout') }}" class="list-side"><i class="bi bi-box-arrow-right icon-side"></i>Logout</a>
+        <a class="list-side" id="logout" type="submit"><i class="bi bi-box-arrow-right icon-side"></i>Logout</a>
     </div>
 
     <div id="main" class="main">
@@ -100,6 +100,8 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js">
     </script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
@@ -123,6 +125,27 @@
             });
 
             $('.active').parentsUntil(['.accordion-collapse']).addClass('show');
+
+            $("#logout").on("click", function () {
+                Swal.fire({
+                    title: 'Kamu Yakin?',
+                    text: "Kamu Akan Keluar Dari Akun",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4F8CB8',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, saya keluar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            icon: 'success',
+                            text: 'Kamu akan keluar',
+                            showConfirmButton: false,
+                        })
+                        window.location.href = "{{ url('logout') }}";
+                    }
+                })
+            })
         });
 
     </script>

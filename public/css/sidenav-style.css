@@ -57,6 +57,18 @@
     color: #f1f1f1;
 }
 
+.sidebar button {
+    padding: 12px 8px 12px 32px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    color: #f1f1f1;
+}
+
 .sidebar .closebtn {
     position: absolute;
     top: 0;
