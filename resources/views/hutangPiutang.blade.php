@@ -40,7 +40,7 @@
                                 onclick="pay('{{ $credit->debt_id }}', '{{ number_format($credit->nominal, 2, ",", ".") }}')">
                             Bayar
                         </button>
-                        <a href="{{ url('sincere').'/'.$credit->debt_id }}" class="btn btn-secondary">Ikhlaskan</a>
+                        <a href="{{ url('sincere').'/'.$credit->debt_id }}" class="btn btn-secondary btnIkhlaskan">Ikhlaskan</a>
                     </td>
                 </tr>
             @endforeach

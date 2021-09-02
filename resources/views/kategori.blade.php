@@ -30,7 +30,7 @@
                                 data-bs-whatever="@getbootstrap"
                                 onclick="editData('{{ $cat->category_id}}','{{ $cat->category_name }}')">Edit
                         </button>
-                        <a href="{{ url('remove-category').'/'.$cat->category_id }}" class="btn btn-danger">Delete</a>
+                        <a href="{{ url('remove-category').'/'.$cat->category_id }}" class="btn btn-danger delKategori">Delete</a>
                     </td>
                 </tr>
             @endforeach
