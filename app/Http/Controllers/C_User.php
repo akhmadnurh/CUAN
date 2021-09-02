@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\RegisterToken;
 use App\Models\M_Mutation;
 use App\Models\M_User;
+use App\Models\M_Mutations;
+use App\Models\M_Debt_Credit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -21,10 +23,34 @@ class C_User extends Controller
 
     public static function dashboard()
     {
+
         $data['categories'] = M_Mutation::getCategories();
         $data['types'] = M_Mutation::getMutationTypes();
         $data['histories'] = M_Mutation::getLatestTransactions(session()->get('user_id'));
         return view('dashboard', $data);
+
+        $riwayat = M_Mutations::join('categories','categories.category_id','=','mutations.category_id')
+                ->limit(5)->get();
+
+        $saldo = M_Mutations::sum('total');
+        $hutang = M_Mutations::where('category_id', '=', 4)->sum('total');
+        $piutang = M_Debt_Credit::sum('nominal');
+        return view('dashboard', [
+            'saldo'=>$saldo,
+            'riwayat'=>$riwayat,
+            'hutang'=>$hutang,
+            'piutang'=>$piutang,
+        ]);
+
+    }
+
+    public static function riwayat()
+    {
+        $riwayat = M_Mutations::join('categories','categories.category_id','=','mutations.category_id')
+                ->get();
+        return view('riwayat', [
+            'riwayat'=>$riwayat,
+        ]);
     }
 
     public static function loginProcess(Request $request)

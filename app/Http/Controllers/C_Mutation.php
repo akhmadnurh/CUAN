@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\M_Mutation;
 use Illuminate\Http\Request;
 
-class C_Mutation extends Controller
+
+
+class C_Mutations extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,10 @@ class C_Mutation extends Controller
      */
     public function total($total)
     {
+        $total = DB::table('mutation')->get();
         // $total = collect('total');
         // dump($total->all());
+
         // return view('dashboard');
     }
 
@@ -53,5 +57,7 @@ class C_Mutation extends Controller
         $data['credits'] = M_Mutation::getCredits(session()->get('user_id'));
         return view('riwayatHutang', $data);
     }
+
+       
 
 }

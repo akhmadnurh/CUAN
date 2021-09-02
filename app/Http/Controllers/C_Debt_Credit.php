@@ -15,7 +15,6 @@ class C_Debt_Credits extends Controller
     public function saldo($saldo)
     {
         
-        $saldo = $saldo_masuk-$saldo_keluar;
     }
     public function debt()
     {

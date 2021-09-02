@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/', [C_User::class, 'dashboard']);
+    Route::get('/riwayat',[C_User::class, 'riwayat']);
     Route::get('/edit-profile', [C_User::class, 'editProfile']);
     Route::post('/edit-profile', [C_User::class, 'editProfileProcess']);
     Route::post('/edit-password', [C_User::class, 'editPasswordProcess']);
@@ -40,7 +41,8 @@ Route::middleware(HasLoggedInCheck::class)->group(function () {
     Route::post('/verify-account', [C_User::class, 'verifyAccountProcess']);
 });
 
-// Route::get('/', [C_Mutation::class, 'total'] );
+//Route::get('/', [C_Mutation::class, 'total'] );
+
 
 Route::get('/logout', [C_User::class, 'logout']);
 
