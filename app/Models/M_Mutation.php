@@ -102,19 +102,23 @@ class M_Mutation extends Model
 
     public static function getBalance($id)
     {
-        $incoming = DB::table('mutations')->where('type_id', 1)->sum('total');
-        $outgoing = DB::table('mutations')->where('type_id', 2)->sum('total');
+        $incoming = DB::table('mutations')->where('type_id', 1)->where('user_id', $id)->sum('total');
+        $outgoing = DB::table('mutations')->where('type_id', 2)->where('user_id', $id)->sum('total');
         return $incoming - $outgoing;
     }
 
     public static function getTotalDebt($id)
     {
-        return DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('nominal');
+        $total = DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('nominal');
+        $paid = DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('paid');
+        return $total - $paid;
     }
 
     public static function getTotalCredit($id)
     {
-        return DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('nominal');
+        $total = DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('nominal');
+        $paid = DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('paid');
+        return $total - $paid;
     }
 
     public static function sincere($id)
