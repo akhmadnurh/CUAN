@@ -58,6 +58,9 @@ class C_Mutation extends Controller
         return view('riwayatHutang', $data);
     }
 
-
+    public function categories()
+    {
+        return view('kategori');
+    }
 
 }

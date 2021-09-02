@@ -62,7 +62,7 @@
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="dropside">
                     <a href="{{  url('edit-profile') }}" class="link-side">Edit Profile</a>
-                    <a href="#" class="link-side">Edit Kategori</a>
+                    <a href="{{ url('categories') }}" class="link-side">Edit Kategori</a>
                 </div>
             </div>
         </div>

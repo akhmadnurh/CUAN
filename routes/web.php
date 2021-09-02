@@ -29,6 +29,7 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/debts', [C_Mutation::class, 'debts']);
     Route::get('/credits', [C_Mutation::class, 'credits']);
     Route::post('/add-mutation', [C_Mutation::class, 'addMutation']);
+    Route::get('/categories', [C_Mutation::class, 'categories']);
 });
 
 //Route::get('/', 'C_Mutation')->name('dashboard');
