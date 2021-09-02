@@ -117,6 +117,8 @@
                 "info": false
             })
 
+            $('#hutangPiutang').DataTable()
+
             var path = window.location.href;
             $('.link-side').each(function () {
                 if (this.href === path) {
