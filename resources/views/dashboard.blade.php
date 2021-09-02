@@ -14,9 +14,9 @@
             <div class="card h-100 card-saldo">
                 <div class="card-body p-4" id="total">
                     <h6 class="card-title">Saldo</h6>
-                    <h5 class="card-title"><b>Rp. @{{ csrf_token($total) }} ,-</b></h5>
+                    <h5 class="card-title"><b>Rp {{ number_format($balance, 2, ',', '.') }}</b></h5>
                 </div>
-                <a href="#" type="button" style="text-decoration: none">
+                <a href="{{ url('incoming-transactions') }}" type="button" style="text-decoration: none">
                     <div class="card-footer">
                         <small>More Info</small>
                     </div>
@@ -27,9 +27,9 @@
             <div class="card h-100 card-saldo">
                 <div class="card-body p-4" id="hutang">
                     <h6 class="card-title">Hutang</h6>
-                    <h5 class="card-title"><b>Rp. 0,-</b></h5>
+                    <h5 class="card-title"><b>Rp {{ number_format($debt, 2, ',', '.') }}</b></h5>
                 </div>
-                <a href="#" type="button" style="text-decoration: none">
+                <a href="{{ url('debts') }}" type="button" style="text-decoration: none">
                     <div class="card-footer">
                         <small>More Info</small>
                     </div>
@@ -40,9 +40,9 @@
             <div class="card h-100 card-saldo">
                 <div class="card-body p-4" id="piutang">
                     <h6 class="card-title">Piutang</h6>
-                    <h5 class="card-title"><b>Rp. 0,-</b></h5>
+                    <h5 class="card-title"><b>Rp {{ number_format($credit, 2, ',', '.') }}</b></h5>
                 </div>
-                <a href="#" type="button" style="text-decoration: none">
+                <a href="{{ url('credits') }}" type="button" style="text-decoration: none">
                     <div class="card-footer">
                         <small>More Info</small>
                     </div>

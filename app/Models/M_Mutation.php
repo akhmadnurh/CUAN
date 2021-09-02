@@ -84,4 +84,34 @@ class M_Mutation extends Model
     {
         return DB::table('categories')->where('category_id', $id)->update(['category_name' => $name]);
     }
+
+    public static function getUnpaidDebtCredits($id)
+    {
+        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->join('debt_credit_types', 'debt_credits.type_id', '=', 'debt_credit_types.type_id')->select('*')->where('user_id', $id)->where('debt_credit_statuses.status_id', 2)->orderBy('debt_id', 'asc')->get();
+    }
+
+    public static function getDebtCreditTypes()
+    {
+        return DB::table('debt_credit_types')->select('*')->get();
+    }
+
+    public static function addDebtCredit($id, $input)
+    {
+        return DB::table('debt_credits')->insert(['user_id' => $id, 'type_id' => $input['mutation-type'], 'borrower' => $input['borrower'], 'nominal' => $input['total'], 'paid' => 0, 'status_id' => 2]);
+    }
+
+    public static function getBalance($id)
+    {
+        return DB::table('mutations')->where('type_id', 1)->sum('total');
+    }
+
+    public static function getTotalDebt($id)
+    {
+        return DB::table('debt_credits')->where('type_id', 1)->sum('nominal');
+    }
+
+    public static function getTotalCredit($id)
+    {
+        return DB::table('debt_credits')->where('type_id', 2)->sum('nominal');
+    }
 }

@@ -33,7 +33,8 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/categories', [C_Mutation::class, 'categories']);
     Route::post('/add-category', [C_Mutation::class, 'addCategory']);
     Route::get('/remove-category/{id}', [C_Mutation::class, 'removeCategory']);
-    Route::post('edit-category', [C_Mutation::class, 'editCategory']);
+    Route::post('/edit-category', [C_Mutation::class, 'editCategory']);
+    Route::post('/add-debt-credit', [C_Mutation::class, 'addDebtCredit']);
 });
 
 //Route::get('/', 'C_Mutation')->name('dashboard');

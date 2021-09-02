@@ -27,6 +27,9 @@ class C_User extends Controller
         $data['categories'] = M_Mutation::getCategories();
         $data['types'] = M_Mutation::getMutationTypes();
         $data['histories'] = M_Mutation::getLatestTransactions(session()->get('user_id'));
+        $data['balance'] = M_Mutation::getBalance(session()->get('user_id'));
+        $data['debt'] = M_Mutation::getTotalDebt(session()->get('user_id'));
+        $data['credit'] = M_Mutation::getTotalCredit(session()->get('user_id'));
         return view('dashboard', $data);
 
         $riwayat = M_Mutations::join('categories','categories.category_id','=','mutations.category_id')

@@ -86,16 +86,28 @@ class C_Mutation extends Controller
 
     public function debtCredits()
     {
-        return view('hutangPiutang');
+        $data['types'] = M_Mutation::getDebtCreditTypes();
+        $data['credits'] = M_Mutation::getUnpaidDebtCredits(session()->get('user_id'));
+        return view('hutangPiutang', $data);
     }
 
     public function editCategory(Request $request)
     {
         $edit = M_Mutation::editCategory($request->input('id-edit'), $request->input('name-edit'));
-        if($edit){
+        if ($edit) {
             return redirect('/categories')->with(['status' => 'success', 'msg' => 'Kategori berhasil diedit.']);
-        }else{
+        } else {
             return redirect('/categories')->with(['status' => 'error', 'msg' => 'Gagal mengedit kategori.']);
+        }
+    }
+
+    public function addDebtCredit(Request $request)
+    {
+        $add = M_Mutation::addDebtCredit(session()->get('user_id'), $request->input());
+        if ($add) {
+            return redirect('/debt-credits')->with(['status' => 'success', 'msg' => 'Data berhasil ditambahkan.']);
+        } else {
+            return redirect('/debt-credits')->with(['status' => 'error', 'msg' => 'Data gagal ditambahkan.']);
         }
     }
 }
