@@ -4,7 +4,7 @@
 <div class="container">
     @if(session()->has('status'))
     <div class="alert {{ session()->get('status') == 'success' ? 'alert-success' : 'alert-danger' }} alert-dismissible fade show"
-        role="alert">
+         role="alert">
         {{session()->get('msg')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -14,7 +14,7 @@
             <div class="card h-100 card-saldo">
                 <div class="card-body p-4" id="total">
                     <h6 class="card-title">Saldo</h6>
-                    <h5 class="card-title"><b>Rp {{ number_format($balance, 2, ',', '.') }}</b></h5>
+                    <h5 class="card-title"><b>Rp {{ number_format($balance < 0  ? 0 : $balance, 2, ',', '.') }}</b></h5>
                 </div>
                 <a href="{{ url('incoming-transactions') }}" type="button" style="text-decoration: none">
                     <div class="card-footer">

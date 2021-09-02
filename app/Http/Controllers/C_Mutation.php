@@ -110,4 +110,23 @@ class C_Mutation extends Controller
             return redirect('/debt-credits')->with(['status' => 'error', 'msg' => 'Data gagal ditambahkan.']);
         }
     }
+
+    public function sincere(Request $request)
+    {
+        $req = M_Mutation::sincere($request->segment(2));
+        if ($req) {
+            return redirect('/debt-credits')->with(['status' => 'success', 'msg' => 'Berhasil.']);
+        } else {
+            return redirect('/debt-credits')->with(['status' => 'error', 'msg' => 'Gagal.']);
+        }
+    }
+
+    public function pay(Request $request){
+        $pay = M_Mutation::pay($request->input());
+        if ($pay) {
+            return redirect('/debt-credits')->with(['status' => 'success', 'msg' => 'Permintaan berhasil.']);
+        } else {
+            return redirect('/debt-credits')->with(['status' => 'error', 'msg' => 'Permintaan gagal.']);
+        }
+    }
 }

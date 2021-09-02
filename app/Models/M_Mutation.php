@@ -102,16 +102,30 @@ class M_Mutation extends Model
 
     public static function getBalance($id)
     {
-        return DB::table('mutations')->where('type_id', 1)->sum('total');
+        $incoming = DB::table('mutations')->where('type_id', 1)->sum('total');
+        $outgoing = DB::table('mutations')->where('type_id', 2)->sum('total');
+        return $incoming - $outgoing;
     }
 
     public static function getTotalDebt($id)
     {
-        return DB::table('debt_credits')->where('type_id', 1)->sum('nominal');
+        return DB::table('debt_credits')->where('type_id', 1)->where('status_id', 2)->sum('nominal');
     }
 
     public static function getTotalCredit($id)
     {
-        return DB::table('debt_credits')->where('type_id', 2)->sum('nominal');
+        return DB::table('debt_credits')->where('type_id', 2)->where('status_id', 2)->sum('nominal');
+    }
+
+    public static function sincere($id)
+    {
+        return DB::table('debt_credits')->where('debt_id', $id)->update(['status_id' => 3]);
+    }
+
+    public static function pay($input)
+    {
+        $data = DB::table('debt_credits')->select('*')->where('debt_id', $input['debt-id'])->first();
+        $status = ($input['nominal'] + $data->paid) >= $data->nominal ? 1 : 2;
+        return DB::table('debt_credits')->where('debt_id', $input['debt-id'])->update(['status_id' => $status, 'paid' => ($input['nominal'] + $data->paid)]);
     }
 }
