@@ -10,6 +10,7 @@
                 <thead>
                 <tr>
                     <th>No. </th>
+                    <th>Peminjam</th>
                     <th>Nominal</th>
                     <th>Sudah Terbayar</th>
                     <th>Status</th>
@@ -19,6 +20,7 @@
                 @foreach($debts as $key => $debt)
                     <tr>
                         <td>{{ ++$key }}</td>
+                        <td>{{ $debt->borrower }}</td>
                         <td>Rp {{ number_format($debt->nominal, 2, ',', '.') }}</td>
                         <td>Rp {{ number_format($debt->paid, 2, ',', '.') }}</td>
                         <td>{{ $debt->status }}</td>

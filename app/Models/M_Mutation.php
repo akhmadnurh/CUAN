@@ -62,11 +62,21 @@ class M_Mutation extends Model
 
     public static function getDebts($id)
     {
-        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->select('*')->where('user_id', $id)->where('')->orderBy('debt_id', 'desc')->get();
+        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->join('debt_credit_types', 'debt_credits.type_id', '=', 'debt_credit_types.type_id')->select('*')->where('user_id', $id)->where('debt_credits.type_id', 1)->orderBy('debt_id', 'desc')->get();
     }
 
     public static function getCredits($id)
     {
-        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->select('*')->where('user_id', $id)->orderBy('debt_id', 'desc')->get();
+        return DB::table('debt_credits')->join('debt_credit_statuses', 'debt_credits.status_id', '=', 'debt_credit_statuses.status_id')->join('debt_credit_types', 'debt_credits.type_id', '=', 'debt_credit_types.type_id')->select('*')->where('user_id', $id)->where('debt_credits.type_id', 2)->orderBy('debt_id', 'desc')->get();
+    }
+
+    public static function addCategory($category)
+    {
+        return DB::table('categories')->insert(['category_name' => $category]);
+    }
+
+    public static function removeCategory($id)
+    {
+        return DB::table('categories')->where('category_id', $id)->delete();
     }
 }

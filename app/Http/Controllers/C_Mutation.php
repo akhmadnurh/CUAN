@@ -55,12 +55,33 @@ class C_Mutation extends Controller
     public function credits()
     {
         $data['credits'] = M_Mutation::getCredits(session()->get('user_id'));
-        return view('riwayatHutang', $data);
+        return view('riwayatPiutang', $data);
     }
 
     public function categories()
     {
-        return view('kategori');
+        $data['categories'] = M_Mutation::getCategories();
+        return view('kategori', $data);
+    }
+
+    public function addCategory(Request $request)
+    {
+        $add = M_Mutation::addCategory($request->input('category'));
+        if ($add) {
+            return redirect('/categories')->with(['status' => 'success', 'msg' => 'Kategori berhasil ditambahkan.']);
+        } else {
+            return redirect('/categories')->with(['status' => 'error', 'msg' => 'Gagal menambahkan kategori.']);
+        }
+    }
+
+    public function removeCategory(Request $request)
+    {
+        $remove = M_Mutation::removeCategory($request->segment(2));
+        if ($remove) {
+            return redirect('/categories')->with(['status' => 'success', 'msg' => 'Kategori berhasil dihapus.']);
+        } else {
+            return redirect('/categories')->with(['status' => 'error', 'msg' => 'Gagal menghapus kategori.']);
+        }
     }
 
 }
