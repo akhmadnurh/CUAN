@@ -47,8 +47,8 @@
     </nav>
 
     <div id="mySidebar" class="sidebar">
-        <a href="/" class="list-side"><i class="bi bi-speedometer icon-side"></i>Dashboard</a>
-        <a href="#" class="list-side"><i class="bi bi-cash-coin icon-side"></i>Hutang Piutang</a>
+        <a href="/" class="list-side link-side"><i class="bi bi-speedometer icon-side"></i>Dashboard</a>
+        <a href="#" class="list-side link-side"><i class="bi bi-cash-coin icon-side"></i>Hutang Piutang</a>
         <div class="accordion list-side" id="accordionPanelsStayOpenExample">
             <p class="accordion-header" id="panelsStayOpen-headingOne">
                 <a type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
@@ -61,8 +61,8 @@
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="dropside">
-                    <a href="{{  url('edit-profile') }}">Edit Profile</a>
-                    <a href="#">Edit Kategori</a>
+                    <a href="{{  url('edit-profile') }}" class="link-side">Edit Profile</a>
+                    <a href="#" class="link-side">Edit Kategori</a>
                 </div>
             </div>
         </div>
@@ -76,10 +76,10 @@
             </p>
             <div id="panels" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="dropside">
-                    <a href="{{ url('outgoing-transactions') }}">Transaksi Keluar</a>
-                    <a href="{{ url('incoming-transactions') }}">Transaksi Masuk</a>
-                    <a href="{{ url('debts') }}">Hutang</a>
-                    <a href="{{ url('credits') }}">Piutang</a>
+                    <a href="{{ url('outgoing-transactions') }}" class="link-side">Transaksi Keluar</a>
+                    <a href="{{ url('incoming-transactions') }}" class="link-side">Transaksi Masuk</a>
+                    <a href="{{ url('debts') }}" class="link-side">Transaksi Hutang</a>
+                    <a href="{{ url('credits') }}" class="link-side">Transaksi Piutang</a>
                 </div>
             </div>
         </div>
@@ -114,6 +114,15 @@
                 "paging": false,
                 "info": false
             })
+
+            var path = window.location.href;
+            $('.link-side').each(function () {
+                if (this.href === path) {
+                    $(this).addClass('active');
+                }
+            });
+
+            $('.active').parentsUntil(['.accordion-collapse']).addClass('show');
         });
 
     </script>

@@ -29,7 +29,7 @@
 
 .dropside {
     background-color: #353955;
-    padding-left: 20px;
+    padding-left: 40px;
 }
 
 .logdrop {
@@ -46,7 +46,7 @@
 
 
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 12px 8px 12px 32px;
     text-decoration: none;
     color: white;
     display: block;
@@ -94,6 +94,11 @@
 .icon-side{
     margin-right: 10px;
 }
+
+.active{
+    color: #9ABBDE !important;
+}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
