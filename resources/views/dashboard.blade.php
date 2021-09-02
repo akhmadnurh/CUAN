@@ -1,7 +1,6 @@
 @extends('layouts.sidenav')
 @section('container')
 
-        @if(session()->has('status'))
 <div class="container">
     @if(session()->has('status'))
     <div class="alert {{ session()->get('status') == 'success' ? 'alert-success' : 'alert-danger' }} alert-dismissible fade show"

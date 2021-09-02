@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 
 
-class C_Mutations extends Controller
+class C_Mutation extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -58,6 +58,6 @@ class C_Mutations extends Controller
         return view('riwayatHutang', $data);
     }
 
-       
+
 
 }
