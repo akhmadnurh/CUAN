@@ -47,8 +47,8 @@
     </nav>
 
     <div id="mySidebar" class="sidebar">
-        <a href="/" class="list-side link-side"><i class="bi bi-speedometer icon-side"></i>Dashboard</a>
-        <a href="#" class="list-side link-side"><i class="bi bi-cash-coin icon-side"></i>Hutang Piutang</a>
+        <a href="{{ url('/') }}" class="list-side link-side"><i class="bi bi-speedometer icon-side"></i>Dashboard</a>
+        <a href="{{ url('debt-credits') }}" class="list-side link-side"><i class="bi bi-cash-coin icon-side"></i>Hutang Piutang</a>
         <div class="accordion list-side" id="accordionPanelsStayOpenExample">
             <p class="accordion-header" id="panelsStayOpen-headingOne">
                 <a type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"

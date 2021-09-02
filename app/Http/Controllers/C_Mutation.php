@@ -84,4 +84,18 @@ class C_Mutation extends Controller
         }
     }
 
+    public function debtCredits()
+    {
+        return view('hutangPiutang');
+    }
+
+    public function editCategory(Request $request)
+    {
+        $edit = M_Mutation::editCategory($request->input('id-edit'), $request->input('name-edit'));
+        if($edit){
+            return redirect('/categories')->with(['status' => 'success', 'msg' => 'Kategori berhasil diedit.']);
+        }else{
+            return redirect('/categories')->with(['status' => 'error', 'msg' => 'Gagal mengedit kategori.']);
+        }
+    }
 }

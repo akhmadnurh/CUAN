@@ -21,17 +21,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $key => $cat)
+            @foreach($categories as $key => $cat)
                 <tr>
                     <td>{{ ++$key }}</td>
                     <td>{{ $cat->category_name }}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
-                            data-bs-whatever="@getbootstrap">Edit</button>
+                                data-bs-whatever="@getbootstrap"
+                                onclick="editData('{{ $cat->category_id}}','{{ $cat->category_name }}')">Edit
+                        </button>
                         <a href="{{ url('remove-category').'/'.$cat->category_id }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
-                @endforeach
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -72,12 +74,14 @@
                     <h5 class="modal-title" id="exampleModalLabel">Edit Kategori</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="" method="">
+                <form action="{{ url('edit-category') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="kategori" class="col-form-label">Kategori</label>
-                            <input type="text" class="form-control" id="kategori" name="category" value="" required>
+                            <input type="text" class="form-control" id="name-edit" name="name-edit"
+                                   required>
+                            <input type="hidden" class="form-control" id="id-edit" name="id-edit" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -89,5 +93,10 @@
         </div>
     </div>
 </div>
-
+<script>
+    const editData = (id, name) => {
+        document.getElementById('name-edit').value = name
+        document.getElementById('id-edit').value = id
+    }
+</script>
 @endsection

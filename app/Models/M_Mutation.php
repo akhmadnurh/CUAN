@@ -79,4 +79,9 @@ class M_Mutation extends Model
     {
         return DB::table('categories')->where('category_id', $id)->delete();
     }
+
+    public static function editCategory($id, $name)
+    {
+        return DB::table('categories')->where('category_id', $id)->update(['category_name' => $name]);
+    }
 }

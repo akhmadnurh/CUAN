@@ -27,11 +27,13 @@ Route::middleware(AuthenticationCheck::class)->group(function () {
     Route::get('/incoming-transactions', [C_Mutation::class, 'incomingTransactions']);
     Route::get('/outgoing-transactions', [C_Mutation::class, 'outgoingTransactions']);
     Route::get('/debts', [C_Mutation::class, 'debts']);
+    Route::get('/debt-credits', [C_Mutation::class, 'debtCredits']);
     Route::get('/credits', [C_Mutation::class, 'credits']);
     Route::post('/add-mutation', [C_Mutation::class, 'addMutation']);
     Route::get('/categories', [C_Mutation::class, 'categories']);
     Route::post('/add-category', [C_Mutation::class, 'addCategory']);
     Route::get('/remove-category/{id}', [C_Mutation::class, 'removeCategory']);
+    Route::post('edit-category', [C_Mutation::class, 'editCategory']);
 });
 
 //Route::get('/', 'C_Mutation')->name('dashboard');
