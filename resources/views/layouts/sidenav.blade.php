@@ -16,7 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid container">
             <div class="d-flex">
-                <a class="navbar-brand" href="/">CUAN</a>
+                <img src="./img/logo.png" class="logo" alt="">
+                <a class="navbar-brand" href="/"><b><i>CUAN</i></b></a>
                 <button class="btn" type="button" onclick="openNav()">
                     <span class="navbar-toggler-icon"></span>
                 </button>

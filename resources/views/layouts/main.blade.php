@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
             @yield('container')
             <div class="col-lg-4 keterangan">
-                <h4>Catat keuanganmu dengan mudah dan praktis menggunakan CUAN</h4>
+                <h4>Catat keuanganmu dengan mudah dan praktis menggunakan <b>CUAN</b></h4>
             </div>
         </div>
     </div>

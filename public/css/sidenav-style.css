@@ -53,6 +53,11 @@
     transition: 0.3s;
 }
 
+.logo{
+    width: 41px;
+    margin-right: 3px !important;
+}
+
 .sidebar a:hover {
     color: #f1f1f1;
 }
